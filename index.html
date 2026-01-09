@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roteiro Good Vibes: Santos 🌻</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Patrick+Hand&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #f7f3e8;
+            --card-glass: rgba(255, 255, 255, 0.85);
+            --primary: #5c7c32;
+            --accent: #d99128;
+            --text-main: #4a4a4a;
+            --text-light: #7a7a7a;
+            --shadow-soft: 0 10px 30px rgba(92, 124, 50, 0.1);
+            --shadow-hover: 0 20px 40px rgba(92, 124, 50, 0.2);
+            --radius: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            background-image: radial-gradient(#dcd5c5 1.5px, transparent 1.5px);
+            background-size: 25px 25px;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ANIMAÇÃO DE FUNDO */
+        .floating-bg {
+            position: fixed;
+            z-index: -1;
+            opacity: 0.4;
+            animation: floatBackground 15s infinite ease-in-out;
+            color: #e6dfce;
+            font-size: 4rem;
+        }
+
+        .bg-1 {
+            top: 10%;
+            left: 5%;
+            animation-duration: 12s;
+        }
+
+        .bg-2 {
+            top: 20%;
+            right: 10%;
+            animation-duration: 18s;
+            animation-delay: 2s;
+        }
+
+        .bg-3 {
+            bottom: 15%;
+            left: 15%;
+            animation-duration: 15s;
+            animation-delay: 1s;
+        }
+
+        .bg-4 {
+            bottom: 30%;
+            right: 5%;
+            animation-duration: 20s;
+        }
+
+        @keyframes floatBackground {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-40px) rotate(10deg);
+            }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            margin-bottom: 70px;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: var(--shadow-soft);
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.8);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .origin-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            border: 1px dashed var(--accent);
+            font-size: 0.95rem;
+            color: var(--text-main);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .origin-box:hover {
+            transform: scale(1.05) rotate(-2deg);
+        }
+
+        .origin-box i {
+            color: var(--accent);
+        }
+
+        /* REGION SECTIONS */
+        .region-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .region-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .region-title {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 2.5rem;
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .region-title span {
+            background: var(--bg-color);
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .region-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: repeating-linear-gradient(90deg, var(--accent), var(--accent) 5px, transparent 5px, transparent 10px);
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        /* CARD DESIGN */
+        .card {
+            background: var(--card-glass);
+            backdrop-filter: blur(5px);
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+            z-index: 10;
+        }
+
+        .card-img-holder {
+            height: 220px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-img-holder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .card:hover .card-img-holder img {
+            transform: scale(1.15);
+        }
+
+        .price-sticker {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary);
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+            transition: transform 0.3s;
+        }
+
+        .card:hover .price-sticker {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .card-body {
+            padding: 25px;
+            flex-grow: 1;
+        }
+
+        .card h3 {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 1.9rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+
+        .address-row {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.4;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 8px;
+            border-radius: 10px;
+        }
+
+        .address-row i {
+            color: var(--primary);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .transport-bar {
+            background: #fdfdfd;
+            border-radius: 15px;
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+        }
+
+        .transport-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .transport-item i {
+            color: var(--accent);
+            font-size: 1.1rem;
+            transition: transform 0.3s;
+        }
+
+        .transport-item:hover i {
+            transform: translateY(-3px);
+        }
+
+        .transport-item span {
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: var(--text-main);
+        }
+
+        .justificativa {
+            background-color: #fffde7;
+            padding: 15px;
+            border-left: 4px solid var(--accent);
+            border-radius: 0 15px 15px 0;
+            font-size: 0.95rem;
+            color: #665c4a;
+            font-style: italic;
+            position: relative;
+        }
+
+        .justificativa::before {
+            content: '"';
+            font-family: 'Patrick Hand';
+            font-size: 3rem;
+            position: absolute;
+            top: -10px;
+            left: 5px;
+            opacity: 0.2;
+            color: var(--accent);
+        }
+
+        .card-footer {
+            padding: 15px 25px;
+            background-color: rgba(249, 251, 247, 0.8);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 0.8rem;
+            color: var(--text-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 50px;
+            color: var(--text-light);
+        }
+
+        footer i.fa-heart {
+            color: #e57373;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+
+            15% {
+                transform: scale(1.3);
+            }
+
+            30% {
+                transform: scale(1);
+            }
+
+            45% {
+                transform: scale(1.3);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <i class="fas fa-leaf floating-bg bg-1"></i>
+    <i class="fas fa-sun floating-bg bg-2"></i>
+    <i class="fas fa-cloud floating-bg bg-3"></i>
+    <i class="fas fa-feather floating-bg bg-4"></i>
+
+    <div class="container">
+        <header>
+            <h1>Roteiro de Férias: Santos</h1>
+            <p class="subtitle">✨ Um tour Good Vibes elaborado por Mayara ✨</p>
+
+            <div class="origin-box">
+                <i class="fas fa-home"></i>
+                <div>
+                    <strong style="display:block; font-size: 0.75rem; color:#999;">PARTINDO DE</strong>
+                    Rua Ambrosina A. C. Tolentino (Castelo)
+                </div>
+            </div>
+        </header>
+
+        <section class="region-section">
+            <h2 class="region-title"><span>🌿 Zona Noroeste (Pertinho!)</span></h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-img-holder">
+                        <span class="price-sticker" style="background:#81c784; color:white;">Gratuito</span>
+                        <img src="https://lh4.googleusercontent.com/proxy/ZzgNF4PXG1Rz6UZI9S86p1oo459V2-ylHMNE5pyws6XCx71WP5lG6Ge9rMlEi4TZ_OONwApbqz-QpIagxVMMFPqFN_unuuYaCwu1Ksc4hnthu-W-Xp7pWjrttO9WcfNYF6YkesH9NcRKMGFY5zVq4wrAszLBWg"
+                            alt="Ruínas do Engenho">
+                    </div>
+                    <div class="card-body">
+                        <h3>Engenho dos Erasmos</h3>
+                        <div class="address-row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Rua Alan Ciber Pinto, 96 - Vila São Jorge
+                        </div>
+
+                        <div class="transport-bar">
+                            <div class="transport-item"><i class="fas fa-bicycle"></i> <span>8-10 min</span></div>
+                            <div class="transport-item"><i class="fas fa-bus"></i> <span>15-20 min</span></div>
+                            <div class="transport-item"><i class="fas fa-walking"></i> <span>25-30 min</span></div>
+                        </div>
+
+                        <p class="justificativa">Uma joia arqueológica no quintal de casa. O 3º engenho da América
+                            Portuguesa.</p>
+                    </div>
+                    <div class="card-footer"><span><i class="far fa-calendar-check"></i> Agendar Visita (Ter-Sáb)</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-holder">
+                        <span class="price-sticker" style="background:#81c784; color:white;">Gratuito</span>
+                        <img src="https://turismosantos.com.br/sites/default/files/files_turismosantos/styles/node_wide/public/2025-10/RAIMUNDO-ROSA_9446.JPG?h=1d86ca3f"
+                            alt="Jardim Botânico">
+                    </div>
+                    <div class="card-body">
+                        <h3>Jardim Botânico</h3>
+                        <div class="address-row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Rua João Fraccaroli, s/n - Bom Retiro
+                        </div>
+
+                        <div class="transport-bar">
+                            <div class="transport-item"><i class="fas fa-bicycle"></i> <span>8 min</span></div>
+                            <div class="transport-item"><i class="fas fa-bus"></i> <span>20 min</span></div>
+                            <div class="transport-item"><i class="fas fa-walking"></i> <span>25 min</span></div>
+                        </div>
+
+                        <p class="justificativa">Um respiro verde absoluto. Lagos, trilhas leves e plantas para
+                            desconectar.</p>
+                    </div>
+                    <div class="card-footer"><span><i class="far fa-clock"></i> Diariamente 7h-18h</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="region-section">
+            <h2 class="region-title"><span>✨ Centro Histórico & Valongo</span></h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-img-holder">
+                        <span class="price-sticker">R$ 8,00</span>
+                        <img src="https://graocafes.com.br/wp-content/uploads/2024/11/Blogpost35_Capa.png"
+                            alt="Museu do Café">
+                    </div>
+                    <div class="card-body">
+                        <h3>Museu do Café</h3>
+                        <div class="address-row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Rua XV de Novembro, 95 - Centro Histórico
+                        </div>
+                        <div class="transport-bar">
+                            <div class="transport-item"><i class="fas fa-bicycle"></i> <span>14 min</span></div>
+                            <div class="transport-item"><i class="fas fa-bus"></i> <span>30 min</span></div>
+                            <div class="transport-item"><i class="fas fa-walking"></i> <span>45 min</span></div>
+                        </div>
+                        <p class="justificativa">Sinta o aroma da história. Arquitetura de cair o queixo e ambiente
+                            perfeito para fotos.</p>
+                    </div>
+                    <div class="card-footer"><span><i class="far fa-clock"></i> Ter-Dom</span></div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-holder">
+                        <span class="price-sticker">R$ 10,00</span>
+                        <img src="https://www.santos.sp.gov.br/static/files_www/styles/newspagemodal/public/field/image/museu.jpg"
+                            alt="Museu Pelé">
+                    </div>
+                    <div class="card-body">
+                        <h3>Museu Pelé</h3>
+                        <div class="address-row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Largo Marquês de Monte Alegre, 1 - Valongo
+                        </div>
+                        <div class="transport-bar">
+                            <div class="transport-item"><i class="fas fa-bicycle"></i> <span>13 min</span></div>
+                            <div class="transport-item"><i class="fas fa-bus"></i> <span>30 min</span></div>
+                            <div class="transport-item"><i class="fas fa-walking"></i> <span>40 min</span></div>
+                        </div>
+                        <p class="justificativa">Homenagem grandiosa ao Rei, dentro de um casarão restaurado impecável
+                            no Valongo.</p>
+                    </div>
+                    <div class="card-footer"><span><i class="far fa-clock"></i> Ter-Dom 10h-17h30</span></div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-holder">
+                        <span class="price-sticker">R$ 7,00</span>
+                        <img src="https://turismosantos.com.br/sites/default/files/files_turismosantos/2025-09/bonde_aberto32.jpg"
+                            alt="Bonde">
+                    </div>
+                    <div class="card-body">
+                        <h3>Passeio de Bonde</h3>
+                        <div class="address-row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Largo Marquês de Monte Alegre, 2 - Valongo
+                        </div>
+                        <div class="transport-bar">
+                            <div class="transport-item"><i class="fas fa-bicycle"></i> <span>13 min</span></div>
+                            <div class="transport-item"><i class="fas fa-bus"></i> <span>30 min</span></div>
+                            <div class="transport-item"><i class="fas fa-walking"></i> <span>40 min</span></div>
+                        </div>
+                        <p class="justificativa">Uma viagem no tempo literal! Guias divertidos e o charme de ver a
+                            cidade pelos trilhos.</p>
+                    </div>
+                    <div class="card-footer"><span><i class="far fa-clock"></i> Ter-Dom 11h-17h</span></div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-holder">
+                        <span class="price-sticker">~R$ 25,00</span>
+                        <img src="https://www.santos.sp.gov.br/static/files_www/styles/portal-quadrado/public/field/image/portal/carlos_nogueira_0722.jpg?itok=kbM0xpVq"
+                            alt="Monte Serrat">
+                    </div>
+                    <div class="card-body">
+                        <h3>Monte Serrat</h3>
+                        <div class="address-row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Praça Correia de Melo, 33 - Centro Histórico
+                        </div>
+                        <div class="transport-bar">
+                            <div class="transport-item"><i class="fas fa-bicycle"></i> <span>11 min</span></div>
+                            <div class="transport-item"><i class="fas fa-bus"></i> <span>25 min</span></div>
+                            <div class="transport-item"><i class="fas fa-walking"></i> <span>35 min</span></div>
+                        </div>
+                        <p class="justificativa">A vista 360º mais bonita. Suba de bondinho histórico ou encare a
+                            escadaria da fé.</p>
+                    </div>
+                    <div class="card-footer"><span><i class="fas fa-camera"></i> Vista Panorâmica</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="region-section">
+            <h2 class="region-title"><span>🌊 Ponta da Praia & Mar</span></h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-img-holder">
+                        <span class="price-sticker">R$ 5,00</span>
+                        <img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/07/6b/d9/e8.jpg"
+                            alt="Aquário">
+                    </div>
+                    <div class="card-body">
+                        <h3>Aquário Municipal</h3>
+                        <div class="address-row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Av. Bartolomeu de Gusmão, s/n - Ponta da Praia
+                        </div>
+                        <div class="transport-bar">
+                            <div class="transport-item"><i class="fas fa-bicycle"></i> <span>22 min</span></div>
+                            <div class="transport-item"><i class="fas fa-bus"></i> <span>45 min</span></div>
+                            <div class="transport-item"><i class="fas fa-walking"></i> <span>1h 20m</span></div>
+                        </div>
+                        <p class="justificativa">Um clássico. Pinguins, tubarões e a tranquilidade de observar a vida
+                            marinha de perto.</p>
+                    </div>
+                    <div class="card-footer"><span><i class="fas fa-fish"></i> Ter-Dom 9h-18h</span></div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-holder">
+                        <span class="price-sticker">R$ 3,00</span>
+                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/c1/78/58/fachada-do-museu-de-pesca.jpg?w=1200&h=-1&s=1"
+                            alt="Museu da Pesca">
+                    </div>
+                    <div class="card-body">
+                        <h3>Museu da Pesca</h3>
+                        <div class="address-row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Av. Bartolomeu de Gusmão, 192 - Ponta da Praia
+                        </div>
+                        <div class="transport-bar">
+                            <div class="transport-item"><i class="fas fa-bicycle"></i> <span>22 min</span></div>
+                            <div class="transport-item"><i class="fas fa-bus"></i> <span>45 min</span></div>
+                            <div class="transport-item"><i class="fas fa-walking"></i> <span>1h 20m</span></div>
+                        </div>
+                        <p class="justificativa">Lar do esqueleto da baleia! Cultura caiçara e curiosidades do mar em
+                            prédio histórico.</p>
+                    </div>
+                    <div class="card-footer"><span><i class="far fa-clock"></i> Qua-Dom 10h-18h</span></div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-holder">
+                        <span class="price-sticker" style="background:#81c784; color:white;">Livre</span>
+                        <img src="https://www.santos.sp.gov.br/static/files_www/files/portal_files/img_noticias/2025/10/img_6147.jpg"
+                            alt="Rebouças">
+                    </div>
+                    <div class="card-body">
+                        <h3>C.E. Rebouças</h3>
+                        <div class="address-row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Praça Eng. José Rebouças, s/n - Ponta da Praia
+                        </div>
+                        <div class="transport-bar">
+                            <div class="transport-item"><i class="fas fa-bicycle"></i> <span>23 min</span></div>
+                            <div class="transport-item"><i class="fas fa-bus"></i> <span>50 min</span></div>
+                            <div class="transport-item"><i class="fas fa-walking"></i> <span>1h 25m</span></div>
+                        </div>
+                        <p class="justificativa">Espaço público de qualidade para praticar esportes sentindo a brisa do
+                            mar.</p>
+                    </div>
+                    <div class="card-footer"><span><i class="fas fa-running"></i> Esporte e Lazer</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="region-section">
+            <h2 class="region-title"><span>🌺 Natureza & Fé</span></h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-img-holder">
+                        <span class="price-sticker">R$ 5,00</span>
+                        <img src="https://www.olaviajantes.tur.br/wp-content/uploads/2024/04/GOPR1146_ALTA305247642110684099-EDIT-scaled.jpg"
+                            alt="Orquidário">
+                    </div>
+                    <div class="card-body">
+                        <h3>Orquidário</h3>
+                        <div class="address-row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Praça Washington, s/n - José Menino
+                        </div>
+                        <div class="transport-bar">
+                            <div class="transport-item"><i class="fas fa-bicycle"></i> <span>13 min</span></div>
+                            <div class="transport-item"><i class="fas fa-bus"></i> <span>35 min</span></div>
+                            <div class="transport-item"><i class="fas fa-walking"></i> <span>50 min</span></div>
+                        </div>
+                        <p class="justificativa">Mágico! Pavões e tucanos soltos. Um pedaço de floresta tropical urbana.
+                        </p>
+                    </div>
+                    <div class="card-footer"><span><i class="fas fa-leaf"></i> Ter-Dom 9h-18h</span></div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img-holder">
+                        <span class="price-sticker" style="background:#81c784; color:white;">Gratuito</span>
+                        <img src="https://www.diocesedesantos.com.br/images/paroquias/santo_antonio_do_embare.jpg"
+                            alt="Basílica">
+                    </div>
+                    <div class="card-body">
+                        <h3>Basílica do Embaré</h3>
+                        <div class="address-row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Av. Bartolomeu de Gusmão, 32 - Embaré
+                        </div>
+                        <div class="transport-bar">
+                            <div class="transport-item"><i class="fas fa-bicycle"></i> <span>18 min</span></div>
+                            <div class="transport-item"><i class="fas fa-bus"></i> <span>40 min</span></div>
+                            <div class="transport-item"><i class="fas fa-walking"></i> <span>1h</span></div>
+                        </div>
+                        <p class="justificativa">Arquitetura neogótica impressionante de frente para o mar. Um lugar de
+                            paz absoluta.</p>
+                    </div>
+                    <div class="card-footer"><span><i class="fas fa-pray"></i> Aberta Diariamente</span></div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Feito com carinho <i class="fas fa-heart"></i><br>Valores aproximados para estudantes (Meia-Entrada).</p>
+            <small style="opacity: 0.7; margin-top: 10px; display: block;">Imagens ilustrativas retiradas da
+                internet</small>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const sections = document.querySelectorAll('.region-section');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+
+</html>
